@@ -1,6 +1,6 @@
 module Passkit
   module Dashboard
-    class PreviewsController < ApplicationController
+    class PreviewsController < Passkit::Dashboard::ApplicationController
       def index
       end
 
