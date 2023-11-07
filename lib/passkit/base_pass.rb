@@ -1,7 +1,8 @@
 module Passkit
   class BasePass
-    def initialize(generator = nil)
+    def initialize(generator = nil, additional_params = {})
       @generator = generator
+      @additional_params = additional_params
     end
 
     def format_version
