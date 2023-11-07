@@ -22,6 +22,7 @@ module Passkit
 
   class Configuration
     attr_accessor :available_passes,
+      :additional_params,
       :web_service_host,
       :certificate_key,
       :private_p12_certificate,
@@ -41,6 +42,7 @@ module Passkit
 
     def initialize
       @available_passes = {"Passkit::ExampleStoreCard" => -> {}}
+      @additional_params = {}
       @web_service_host = ENV["PASSKIT_WEB_SERVICE_HOST"] || (raise "Please set PASSKIT_WEB_SERVICE_HOST")
       raise("PASSKIT_WEB_SERVICE_HOST must start with https://") unless @web_service_host.start_with?("https://")
       @certificate_key = ENV["PASSKIT_CERTIFICATE_KEY"] || (raise "Please set PASSKIT_CERTIFICATE_KEY")

@@ -50,7 +50,13 @@ module Passkit
             generator_class = payload[:generator_class].constantize
             generator = generator_class.find(payload[:generator_id])
           end
-          Passkit::Factory.create_pass(payload[:pass_class], generator)
+
+          additional_params = {}
+          if payload[:additional_params].present?
+            additional_params = payload[:additional_params].to_h
+          end
+
+          Passkit::Factory.create_pass(payload[:pass_class], generator, additional_params)
         end
       end
     end

@@ -42,7 +42,7 @@ module Passkit
     end
 
     def instance
-      @instance ||= klass.constantize.new(generator)
+      @instance ||= klass.constantize.new(generator, additional_params)
     end
 
     def last_update
