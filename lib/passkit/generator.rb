@@ -30,7 +30,7 @@ module Passkit
     end
 
     def create_temporary_directory
-      FileUtils.mkdir_p(TMP_FOLDER) unless File.directory?(TMP_FOLDER)
+      FileUtils.mkdir_p(TMP_FOLDER, mode: 0775) unless File.directory?(TMP_FOLDER) # standard:disable Style/NumericLiteralPrefix
       @temporary_path = TMP_FOLDER.join(@pass.file_name.to_s)
 
       FileUtils.rm_rf(@temporary_path) if File.directory?(@temporary_path)
@@ -38,6 +38,7 @@ module Passkit
 
     def copy_pass_to_tmp_location
       FileUtils.cp_r(@pass.pass_path, @temporary_path)
+      FileUtils.chmod(0775, @temporary_path) # standard:disable Style/NumericLiteralPrefix
     end
 
     def clean_ds_store_files
