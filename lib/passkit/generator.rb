@@ -51,7 +51,6 @@ module Passkit
         teamIdentifier: @pass.apple_team_identifier,
         foregroundColor: @pass.foreground_color,
         backgroundColor: @pass.background_color,
-        webServiceURL: @pass.web_service_url,
         barcode: @pass.barcode,
         voided: @pass.voided,
         organizationName: @pass.organization_name,
@@ -64,6 +63,10 @@ module Passkit
         passTypeIdentifier: @pass.pass_type_identifier,
         authenticationToken: @pass.authentication_token
       }
+
+      if @pass.web_service_url.present?
+        pass[:webServiceURL] = @pass.web_service_url
+      end
 
       pass[:maxDistance] = @pass.max_distance if @pass.max_distance
 
