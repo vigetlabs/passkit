@@ -69,6 +69,7 @@ module Passkit
       end
 
       pass[:maxDistance] = @pass.max_distance if @pass.max_distance
+      pass[:expirationDate] = @pass.expiration_date if @pass.expiration_date
 
       pass[@pass.pass_type] = {
         headerFields: @pass.header_fields,
