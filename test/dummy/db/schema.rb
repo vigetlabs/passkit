@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_124956) do
     t.string "serial_number"
     t.string "authentication_token"
     t.json "data"
+    t.json "additional_params"
     t.integer "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
