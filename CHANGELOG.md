@@ -1,3 +1,8 @@
+## [Unreleased]
+
+- Require Rubyzip 3.4 or newer within 3.x to address CVE-2026-85396.
+- Verify that generated pass archives preserve their file contents with Rubyzip 3.
+
 ## [0.5.4]
 
 - Fix last-modified header format. Return it in RFC 2616 format.
