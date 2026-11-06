@@ -84,6 +84,10 @@ module Passkit
     def max_distance
     end
 
+    # Date and time pass expires, including days hours minutes
+    def expiration_date
+    end
+
     def file_name
       @file_name ||= SecureRandom.uuid
     end

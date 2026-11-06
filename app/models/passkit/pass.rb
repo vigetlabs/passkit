@@ -31,6 +31,7 @@ module Passkit
       :back_fields,
       :sharing_prohibited,
       :max_distance,
+      :expiration_date,
       to: :instance
 
     before_validation on: :create do
